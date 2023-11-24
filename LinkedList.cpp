@@ -182,8 +182,12 @@ void LinkedList::addPerson()
 	// Traverse until the end of the list
 	Node* temp = head;
 	while (temp->link != NULL)
+	{
+		temp->link->setPrev(temp); // Update the prev node to point to the current node
 		temp = temp->link;
+	}
 	// Store node at the end
+	newNode->setPrev(temp);
 	temp->link = newNode;
 }
 

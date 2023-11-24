@@ -19,6 +19,8 @@ public:
 class Node
 {
 public:
+	Node* prev;
+
 	string lastName, name;
 	int ci;
 	class BirthDate date;
@@ -28,5 +30,7 @@ public:
 	Node();
 
 	Node(string lN, string n, int ci, int d, int m, int y);
+
+	void setPrev(Node* n);
 };
 

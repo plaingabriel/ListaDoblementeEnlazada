@@ -27,6 +27,7 @@ void BirthDate::setDate(int d, int m, int y)
 // NODE CONSTRUCTOR
 Node::Node()
 {
+	prev = NULL;
 	lastName = "";
 	name = "";
 	ci = 0;
@@ -34,12 +35,19 @@ Node::Node()
 	link = NULL;
 }
 
-// BIRTHDATE CONSTRUCTOR
+// NODE PARAM CONSTRUCTOR
 Node::Node(string lN, string n, int ci, int d, int m, int y)
 {
+	this->prev = NULL;
 	this->lastName = lN;
 	this->name = n;
 	this->ci = ci;
 	this->date = BirthDate(d, m, y);
 	this->link = NULL;
+}
+
+// SET PREV NODE
+void Node::setPrev(Node* n)
+{
+	this->prev = n;
 }
