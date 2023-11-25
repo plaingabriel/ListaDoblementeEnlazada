@@ -30,7 +30,5 @@ public:
 	Node();
 
 	Node(string lN, string n, int ci, int d, int m, int y);
-
-	void setPrev(Node* n);
 };
 

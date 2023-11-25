@@ -183,11 +183,11 @@ void LinkedList::addPerson()
 	Node* temp = head;
 	while (temp->link != NULL)
 	{
-		temp->link->setPrev(temp); // Update the prev node to point to the current node
+		temp->link->prev = temp; // Update the prev node to point to the current node
 		temp = temp->link;
 	}
 	// Store node at the end
-	newNode->setPrev(temp);
+	newNode->prev = temp;
 	temp->link = newNode;
 }
 
@@ -228,11 +228,10 @@ void LinkedList::searchMenu()
 // MODIFY PERSON
 void LinkedList::modifyPerson(int pos)
 {
-	Node* previous = head, * current = head;
+	Node* current = head;
 	// Loop until be on the position
 	while (pos != 0)
 	{
-		previous = current;
 		current = current->link;
 		pos--;
 	}
@@ -243,9 +242,9 @@ void LinkedList::modifyPerson(int pos)
 // REMOVE PERSON
 void LinkedList::removePerson(int pos)
 {
-	Node* current = head, * previous = head;
+	Node* current = head;
 
-	// Declare temp1
+	// Declare current
 	current = head;
 
 	// Case: Delete head.
@@ -261,14 +260,14 @@ void LinkedList::removePerson(int pos)
 	while (pos-- > 0)
 	{
 		// Update previous
-		previous = current;
+		current->prev = current;
 
 		// Update current
 		current = current->link;
 	}
 
 	// Change the next pointer of the previous node
-	previous->link = current->link;
+	current->prev->link = current->link;
 
 	// Delete the node
 	delete current;

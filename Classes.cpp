@@ -45,9 +45,3 @@ Node::Node(string lN, string n, int ci, int d, int m, int y)
 	this->date = BirthDate(d, m, y);
 	this->link = NULL;
 }
-
-// SET PREV NODE
-void Node::setPrev(Node* n)
-{
-	this->prev = n;
-}
